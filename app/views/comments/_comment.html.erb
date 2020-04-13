@@ -1,0 +1,15 @@
+<!-- JME se creo el parcial  2 -->
+<!-- JME error con div_for abre el archivo Gemfile de tu app y
+ pegale gem "record_tag_helper', '~> 1.0" despues
+  en la linea de comandos teclea "bundle install"-->
+<%= div_for comment do %>
+  <p><strong>
+    Posted <%= time_ago_in_words(comment.created_at) %>
+    </strong>
+    <br />
+    <%= h(comment.body) %>
+  </p>
+<% end %>
+<!-- JME h se escapa de html -->
+<!-- JME time_ago_in_words te dice cuando fue creado ese dato en palabras -->
+<!-- JME no usa @ ya  que esta tratandoc u¿on una lista de comentarios y no solo con uno -->

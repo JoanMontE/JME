@@ -1,0 +1,8 @@
+<!-- JME se creo el parcial  1 -->
+<!-- JME error con div_for abre el archivo Gemfile de tu app y
+ pegale gem "record_tag_helper', '~> 1.0" despues
+  en la linea de comandos teclea "bundle install"-->
+<%= div_for @post do %>
+  <h2><%= h(@post.title) %></h2>
+  <%= simple_format h(@post.body) %>
+<% end %>

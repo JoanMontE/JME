@@ -1,14 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<!-- JME se quita el codigo y se agrego el llamado al parcial 1 -->
+<!-- JME llamado al parcial 1 que es la estructura del post -->
+<%= render @post %>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+<!-- JME llamado al parcial 2 que es la lista de comentarios -->
+<!-- JME llamado a cada comentario, y el reverse por orden cronologico inverso-->
+<h2>Comments</h2>
+<div id="comments">
+  <%= render @post.comments.reverse %>
+</div>
+
+<!-- JME formulario para añadir comentarios -->
+<!-- JME mencionan que hay que quitar lo ultimo de ",remote:true" para ver el problema
+el cual es que no lleba un numero de post y es por eso que caambia a @post.Comment.new]
+luego le regresa el ",remote:true" de ajax y listo -->
+<%= form_for [@post,@post.comments.new],remote:true do |f| %>
+  <p>
+    <%= f.label :body, "New Comment" %><br />
+    <%= f.hidden_field :post_id %>
+    <%= f.text_area :body %>
+    <%= f.label :body, "Id de Usuario" %><br />
+    <%= f.text_area :user_id %>
+  </p>
+  <p><%= f.submit "Add Comment" %></p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

@@ -50,3 +50,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#JME se tuvo que incluir ya que el div_for no funcionaba (venia en los comentarrios de las discuciones)
+gem 'record_tag_helper', '~> 1.0'
